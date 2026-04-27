@@ -1,388 +1,421 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>CV - Béatrice Roques</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        @page {
-            size: A4;
-            margin: 0;
-        }
+      @page {
+        size: A4;
+        margin: 0;
+      }
 
-        html,
+      html,
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background: #e5e5e5;
+        color: #333;
+        font-size: 10pt;
+        line-height: 1.45;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 20px auto;
+        background: #fff;
+        display: grid;
+        grid-template-columns: 75mm 1fr;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      /* ===== Sidebar ===== */
+      .sidebar {
+        background: #2a5978;
+        color: #fff;
+        padding: 0 14mm 14mm 14mm;
+      }
+
+      .photo-wrapper {
+        display: flex;
+        justify-content: center;
+        padding-top: 15mm;
+        margin-bottom: 7.5mm;
+      }
+
+      .photo {
+        width: 38mm;
+        height: 38mm;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        background: #c9d8d8 url("photo-profil-2026-cropped.JPG") center/cover
+          no-repeat;
+      }
+
+      .sidebar h2 {
+        font-size: 11pt;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+        padding-bottom: 4px;
+        margin-bottom: 8px;
+      }
+
+      .sidebar-section {
+        margin-bottom: 9mm;
+      }
+
+      .sidebar-section p,
+      .sidebar-section li {
+        font-size: 8.8pt;
+        line-height: 1.45;
+      }
+
+      .sidebar ul {
+        list-style: none;
+      }
+
+      .sidebar ul li {
+        position: relative;
+        padding-left: 10px;
+        margin-bottom: 15px;
+      }
+
+      .sidebar ul li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: -1px;
+      }
+
+      .contact-line {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 5px;
+        font-size: 8.8pt;
+      }
+
+      .contact-line .icon {
+        width: 16px;
+        flex-shrink: 0;
+        text-align: center;
+        font-weight: 700;
+      }
+
+      .lang-item {
+        margin-bottom: 6px;
+      }
+
+      .lang-name {
+        display: flex;
+        justify-content: space-between;
+        font-size: 8.8pt;
+        margin-bottom: 3px;
+      }
+
+      .lang-bar {
+        height: 4px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .lang-bar .fill {
+        height: 100%;
+        background: #fff;
+      }
+
+      /* ===== Main content ===== */
+      .main {
+        padding: 0 14mm 14mm 14mm;
+      }
+
+      .header {
+        padding: 12mm 0 8mm 0;
+      }
+
+      .header h1 {
+        color: #2a5978;
+        font-size: 22pt;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+
+      .header .title {
+        font-size: 11pt;
+        color: #555;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-top: 2px;
+      }
+
+      .main section {
+        margin-bottom: 8mm;
+      }
+
+      .main h2 {
+        color: #2a5978;
+        font-size: 12pt;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 2mm;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #2a5978;
+      }
+
+      .profile p {
+        text-align: justify;
+        font-size: 9.5pt;
+      }
+
+      .entry {
+        margin-bottom: 5mm;
+      }
+
+      .entry .role {
+        font-weight: 700;
+        color: #222;
+        font-size: 10pt;
+      }
+
+      .entry .date {
+        float: right;
+        color: #666;
+        font-size: 9pt;
+        font-weight: 600;
+      }
+
+      .entry .org {
+        font-style: italic;
+        color: #555;
+        font-size: 9.3pt;
+        margin-top: 1px;
+      }
+
+      .entry .desc {
+        font-size: 9.2pt;
+        color: #444;
+        margin-top: 2px;
+      }
+
+      .interests {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+      }
+
+      .interests span {
+        position: relative;
+        padding-left: 12px;
+        font-size: 9.5pt;
+      }
+
+      .interests span::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #2a5978;
+        font-weight: 700;
+      }
+
+      @media print {
         body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background: #e5e5e5;
-            color: #333;
-            font-size: 10pt;
-            line-height: 1.45;
+          background: #fff;
         }
 
         .page {
-            width: 210mm;
-            min-height: 297mm;
-            margin: 20px auto;
-            background: #fff;
-            display: grid;
-            grid-template-columns: 75mm 1fr;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, .2);
-            overflow: hidden;
+          margin: 0;
+          box-shadow: none;
         }
+      }
 
-        /* ===== Sidebar ===== */
-        .sidebar {
-            background: #2a5978;
-            color: #fff;
-            padding: 0 14mm 14mm 14mm;
-        }
-
-        .photo-wrapper {
-            display: flex;
-            justify-content: center;
-            padding-top: 15mm;
-            margin-bottom: 7.5mm;
-        }
-
-        .photo {
-            width: 38mm;
-            height: 38mm;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            background: #c9d8d8 url("photo-profil-2026-cropped.JPG") center/cover no-repeat;
-        }
-
-        .sidebar h2 {
-            font-size: 11pt;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(255, 255, 255, .55);
-            padding-bottom: 4px;
-            margin-bottom: 8px;
-        }
-
-        .sidebar-section {
-            margin-bottom: 9mm;
-        }
-
-        .sidebar-section p,
-        .sidebar-section li {
-            font-size: 8.8pt;
-            line-height: 1.45;
-        }
-
-        .sidebar ul {
-            list-style: none;
-        }
-
-        .sidebar ul li {
-            position: relative;
-            padding-left: 10px;
-            margin-bottom: 15px;
-        }
-
-        .sidebar ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: -1px;
-        }
-
-        .contact-line {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            margin-bottom: 5px;
-            font-size: 8.8pt;
-        }
-
-        .contact-line .icon {
-            width: 16px;
-            flex-shrink: 0;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        .lang-item {
-            margin-bottom: 6px;
-        }
-
-        .lang-name {
-            display: flex;
-            justify-content: space-between;
-            font-size: 8.8pt;
-            margin-bottom: 3px;
-        }
-
-        .lang-bar {
-            height: 4px;
-            background: rgba(255, 255, 255, .3);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .lang-bar .fill {
-            height: 100%;
-            background: #fff;
-        }
-
-        /* ===== Main content ===== */
-        .main {
-            padding: 0 14mm 14mm 14mm;
-        }
-
-        .header {
-            padding: 12mm 0 8mm 0;
-        }
-
-        .header h1 {
-            color: #2a5978;
-            font-size: 22pt;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .header .title {
-            font-size: 11pt;
-            color: #555;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
-
-        .main section {
-            margin-bottom: 8mm;
-        }
-
-        .main h2 {
-            color: #2a5978;
-            font-size: 12pt;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 2mm;
-            padding-bottom: 3px;
-            border-bottom: 1px solid #2a5978;
-        }
-
-        .profile p {
-            text-align: justify;
-            font-size: 9.5pt;
-        }
-
-        .entry {
-            margin-bottom: 5mm;
-        }
-
-        .entry .role {
-            font-weight: 700;
-            color: #222;
-            font-size: 10pt;
-        }
-
-        .entry .date {
-            float: right;
-            color: #666;
-            font-size: 9pt;
-            font-weight: 600;
-        }
-
-        .entry .org {
-            font-style: italic;
-            color: #555;
-            font-size: 9.3pt;
-            margin-top: 1px;
-        }
-
-        .entry .desc {
-            font-size: 9.2pt;
-            color: #444;
-            margin-top: 2px;
-        }
-
-        .interests {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 18px;
-        }
-
-        .interests span {
-            position: relative;
-            padding-left: 12px;
-            font-size: 9.5pt;
-        }
-
-        .interests span::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #2a5978;
-            font-weight: 700;
-        }
-
-        @media print {
-            body {
-                background: #fff;
-            }
-
-            .page {
-                margin: 0;
-                box-shadow: none;
-            }
-        }
-
-        .link-tel, .link-mail {
-            color: #ffffff;
-            text-decoration: none;
-        }
+      .link-tel,
+      .link-mail {
+        color: #ffffff;
+        text-decoration: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="page">
+      <!-- ============ SIDEBAR ============ -->
+      <aside class="sidebar">
+        <div class="photo-wrapper">
+          <div class="photo"></div>
+        </div>
 
-        <!-- ============ SIDEBAR ============ -->
-        <aside class="sidebar">
-            <div class="photo-wrapper">
-                <div class="photo"></div>
+        <div class="sidebar-section">
+          <h2>Coordonnées</h2>
+          <div class="contact-line">
+            8 bis Sente du Montoir<br />78800 HOUILLES
+          </div>
+          <div class="contact-line">
+            <a class="link-tel" href="tel:06 85 51 84 26">06 85 51 84 26</a>
+          </div>
+          <div class="contact-line">
+            <a class="link-mail" href="mailto:beatisa.roques@gmail.com"
+              >beatisa.roques@gmail.com</a
+            >
+          </div>
+          <div class="contact-line">Permis B</div>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Compétences</h2>
+          <ul>
+            <li>
+              Animation et préparation de cours de français (FLE, ALPHA,
+              POST-ALPHA) pour adultes (OFII, CBP, ADVF, RSA), et jeunes (Avenir
+              Jeunes, PEE)
+            </li>
+            <li>Accompagnement des publics vers la certification Cléa</li>
+            <li>Suivi administratif et pédagogique du marché OFII</li>
+            <li>Préparation des stagiaires au DILF et au DELF A1</li>
+            <li>
+              Accompagnement aux techniques de recherche d’emploi, de stage
+            </li>
+            <li>Bilan des acquis personnels et professionnels</li>
+            <li>Accompagnement à l’élaboration du projet professionnel</li>
+            <li>Maîtrise des logiciels de bureautique (WORD, EXCEL)</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h2>Langues</h2>
+
+          <div class="lang-item">
+            <div class="lang-name">
+              <span>Italien</span><span>Courant</span>
             </div>
-
-            <div class="sidebar-section">
-                <h2>Coordonnées</h2>
-                <div class="contact-line">8 bis Sente du Montoir<br>78800
-                        HOUILLES</div>
-                <div class="contact-line"><a class="link-tel" href="tel:06 85 51 84 26">06 85 51 84 26</a></div>
-                <div class="contact-line"><a class="link-mail" href="mailto:beatisa.roques@gmail.com">beatisa.roques@gmail.com</a></div>
-                <div class="contact-line">Permis B</div>
+            <div class="lang-bar">
+              <div class="fill" style="width: 85%"></div>
             </div>
+          </div>
 
-            <div class="sidebar-section">
-                <h2>Compétences</h2>
-                <ul>
-                    <li>Animation et préparation de cours de français (FLE, ALPHA, POST-ALPHA) pour adultes (OFII, CBP,
-                        ADVF, RSA), et jeunes (Avenir Jeunes, PEE)</li>
-                    <li>Accompagnement des publics vers la certification Cléa</li>
-                    <li>Suivi administratif et pédagogique du marché OFII</li>
-                    <li>Préparation des stagiaires au DILF et au DELF A1</li>
-                    <li>Accompagnement aux techniques de recherche d’emploi, de stage</li>
-                    <li>Bilan des acquis personnels et professionnels</li>
-                    <li>Accompagnement à l’élaboration du projet professionnel</li>
-                    <li>Maîtrise des logiciels de bureautique (WORD, EXCEL)</li>
-                </ul>
+          <div class="lang-item">
+            <div class="lang-name">
+              <span>Anglais</span><span>Intermédiaire</span>
             </div>
-
-            <div class="sidebar-section">
-                <h2>Langues</h2>
-
-                <div class="lang-item">
-                    <div class="lang-name"><span>Italien</span><span>Courant</span></div>
-                    <div class="lang-bar">
-                        <div class="fill" style="width:85%"></div>
-                    </div>
-                </div>
-
-                <div class="lang-item">
-                    <div class="lang-name"><span>Anglais</span><span>Intermédiaire</span></div>
-                    <div class="lang-bar">
-                        <div class="fill" style="width:65%"></div>
-                    </div>
-                </div>
-
+            <div class="lang-bar">
+              <div class="fill" style="width: 65%"></div>
             </div>
-        </aside>
+          </div>
+        </div>
+      </aside>
 
-        <!-- ============ MAIN ============ -->
-        <main class="main">
-            <header class="header">
-                <h1>Béatrice Roques</h1>
-                <div class="title">Formatrice FLE</div>
-                <div class="title">+ de 20 ans d'expérience</div>
-            </header>
+      <!-- ============ MAIN ============ -->
+      <main class="main">
+        <header class="header">
+          <h1>Béatrice Roques</h1>
+          <div class="title">Formatrice FLE</div>
+          <div class="title">+ de 20 ans d'expérience</div>
+        </header>
 
-            <section class="profile">
-                <h2>Profil professionnel</h2>
-                <p>Professeure de FLE avec plus de 20 ans d’expérience, j’accompagne des apprenants de tous niveaux.
-                    Je conçois et anime des programmes pédagogiques adaptés à des publics multiculturels.
-                    Je possède de solides compétences en didactique, évaluation et gestion de groupe.
-                    Je privilégie un apprentissage dynamique axé sur la communication et la confiance.</p>
-            </section>
+        <section class="profile">
+          <h2>Profil professionnel</h2>
+          <p>
+            Formatrice FLE avec plus de 20 ans d’expérience, j’accompagne des
+            apprenants de tous niveaux. Je conçois et anime des programmes
+            pédagogiques adaptés à des publics multiculturels. Je possède de
+            solides compétences en didactique, évaluation et gestion de groupe.
+            Je privilégie un apprentissage dynamique axé sur la communication et
+            la confiance.
+          </p>
+        </section>
 
-            <section>
-                <h2>Expérience</h2>
+        <section>
+          <h2>Expérience</h2>
 
-                <div class="entry">
-                    <span class="date">09/2016 – 02/2026</span>
-                    <div class="role">Formatrice linguistique<br>(OFII A1/A2 5 ans, PEE 3 ans, CBP, ADVF)</div>
-                    <div class="org">IDC Formation - Ile-de-France</div>
-                </div>
+          <div class="entry">
+            <span class="date">09/2016 – 02/2026</span>
+            <div class="role">
+              Formatrice linguistique<br />(OFII A1/A2 5 ans, PEE 3 ans, CBP,
+              ADVF)
+            </div>
+            <div class="org">IDC Formation - Ile-de-France</div>
+          </div>
 
-                <div class="entry">
-                    <span class="date">01/2016 – 02/2016</span>
-                    <div class="role">Formatrice FLE (niveaux A1 à C2)</div>
-                    <div class="org">CFILC – Paris La Défense</div>
-                </div>
+          <div class="entry">
+            <span class="date">01/2016 – 02/2016</span>
+            <div class="role">Formatrice FLE (niveaux A1 à C2)</div>
+            <div class="org">CFILC – Paris La Défense</div>
+          </div>
 
-                <div class="entry">
-                    <span class="date">01/2012 – 07/2015</span>
-                    <div class="role">Formatrice linguistique (FLE, alpha, OFII)</div>
-                    <div class="org">ABC Formation – Franconville</div>
-                </div>
+          <div class="entry">
+            <span class="date">01/2012 – 07/2015</span>
+            <div class="role">Formatrice linguistique (FLE, alpha, OFII)</div>
+            <div class="org">ABC Formation – Franconville</div>
+          </div>
 
-                <div class="entry">
-                    <span class="date">01/2005 – 12/2011</span>
-                    <div class="role">Formatrice linguistique<br>(FLE, alpha, illettrisme, RAN)</div>
-                    <div class="org">Spirale Formation Conseils, SJT,  ASSOFAC - Ile-de-France</div>
-                </div>
+          <div class="entry">
+            <span class="date">01/2005 – 12/2011</span>
+            <div class="role">
+              Formatrice linguistique<br />(FLE, alpha, illettrisme, RAN)
+            </div>
+            <div class="org">
+              Spirale Formation Conseils, SJT, ASSOFAC - Ile-de-France
+            </div>
+          </div>
 
-                <div class="entry">
-                    <span class="date">01/2003 – 01/2005</span>
-                    <div class="role">Formatrice en insertion sociale et professionnelle (plateforme de mobilisation)
-                    </div>
-                    <div class="org">INSTEP – Nanterre</div>
-                </div>
+          <div class="entry">
+            <span class="date">01/2003 – 01/2005</span>
+            <div class="role">
+              Formatrice en insertion sociale et professionnelle (plateforme de
+              mobilisation)
+            </div>
+            <div class="org">INSTEP – Nanterre</div>
+          </div>
 
-                <div class="entry">
-                    <span class="date">2002</span>
-                    <div class="role">Formatrice en alphabétisation, public adulte</div>
-                    <div class="org">Secours catholique – Houilles (78), Le Déclic 95 – Bezons (95)</div>
-                </div>
-            </section>
+          <div class="entry">
+            <span class="date">2002</span>
+            <div class="role">Formatrice en alphabétisation, public adulte</div>
+            <div class="org">
+              Secours catholique – Houilles (78), Le Déclic 95 – Bezons (95)
+            </div>
+          </div>
+        </section>
 
-            <section>
-                <h2>Formation</h2>
+        <section>
+          <h2>Formation</h2>
 
-                <div class="entry">
-                    <span class="date">06/2014</span>
-                    <div class="role">Master 1 – Sciences du langage, spécialité FLE</div>
-                    <div class="org">Université Stendhal – Grenoble</div>
-                </div>
+          <div class="entry">
+            <span class="date">06/2014</span>
+            <div class="role">
+              Master 1 – Sciences du langage, spécialité FLE
+            </div>
+            <div class="org">Université Stendhal – Grenoble</div>
+          </div>
 
-                <div class="entry">
-                    <span class="date">09/2001</span>
-                    <div class="role">Maîtrise – Sciences de l'Éducation, spécialisation animation et conduite de
-                        projets éducatifs</div>
-                    <div class="org">Université Paris-Nanterre</div>
-                </div>
-            </section>
+          <div class="entry">
+            <span class="date">09/2001</span>
+            <div class="role">
+              Maîtrise – Sciences de l'Éducation, spécialisation animation et
+              conduite de projets éducatifs
+            </div>
+            <div class="org">Université Paris-Nanterre</div>
+          </div>
+        </section>
 
-            <section>
-                <h2>Centres d'intérêt</h2>
-                <div class="interests">
-                    <span>Fitness</span>
-                    <span>Yoga</span>
-                    <span>Théâtre</span>
-                    <span>Cinéma</span>
-                    <span>Voyages</span>
-                </div>
-            </section>
-        </main>
+        <section>
+          <h2>Centres d'intérêt</h2>
+          <div class="interests">
+            <span>Fitness</span>
+            <span>Yoga</span>
+            <span>Théâtre</span>
+            <span>Cinéma</span>
+            <span>Voyages</span>
+          </div>
+        </section>
+      </main>
     </div>
-</body>
-
+  </body>
 </html>
