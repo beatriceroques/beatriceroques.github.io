@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CV Editor — Béatrice Roques</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data: file:; frame-src data: blob:; child-src data: blob:;"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>CV Editor</h1>
+      <div class="topbar-actions">
+        <span id="save-status" class="save-status"></span>
+        <button id="btn-export-pdf" type="button" disabled>
+          Exporter en PDF
+        </button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="editor" id="editor"></section>
+      <section class="preview">
+        <iframe id="preview-frame" sandbox="allow-same-origin"></iframe>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
